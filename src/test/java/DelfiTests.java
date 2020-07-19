@@ -39,6 +39,8 @@ public class DelfiTests {
         // Check (testi pi6utsja dlja proverki)
         Assertions.assertEquals(firstTitleText,articleTitleText,"Wrong article title!");
 
+        // Find first article' comments amount
+       WebElement articleCommentsAmount = driver.findElement(By.xpath(".//a[contains(@class, 'comment-count')]"));
 
     }
 }
