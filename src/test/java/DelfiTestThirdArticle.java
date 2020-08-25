@@ -21,7 +21,7 @@ public class DelfiTestThirdArticle {
     private final By ARTICLE_PAGE_TITLE = By.xpath(".//h1[contains(@class, 'd-inline')]");
     private final By ARTICLE_PAGE_COMMENTS = By.xpath(".//a[contains(@class, 'd-print-none')]");
 
-    private final By COMMENTS_PAGE_TITLE = By.xpath(".//a[contains(@href, 'id=52393413')]");
+    private final By COMMENTS_PAGE_TITLE = By.xpath(".//h1[@class = 'article-title']");
     private final By COMMENTS_PAGE_COMMENTS = By.xpath(".//span[contains(@class, 'type-cnt')]");
 
     //Sozdajem kopiju loggera:
@@ -51,7 +51,7 @@ public class DelfiTestThirdArticle {
         LOGGER.info("To find title on the article");
         // find title (vnutri samoj statji bude iskatj nazvanije). Po4emu vnutri, esli pri napisanii lokatora
         // vidajet vse nazvanija, a ne konkretno na6u.
-        String homePageTitle = article.findElement(TITLE).getText();
+        String homePageTitle = article.findElement(TITLE).getText().trim();
 
         LOGGER.info("Getting comments on home page");
         // lokator nado sdelatj. mozem nazatj na ljuboj koment i posmotretj kod.
@@ -70,9 +70,8 @@ public class DelfiTestThirdArticle {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(ARTICLE_PAGE_TITLE));
 
-
         LOGGER.info("Getting title on the article page, for compare with title on homepage");
-        String articlePageTitle = driver.findElement(ARTICLE_PAGE_TITLE).getText();
+        String articlePageTitle = driver.findElement(ARTICLE_PAGE_TITLE).getText().trim();
 
 
         LOGGER.info("Getting comments count on article page"); // Objazateljno text perevesti v cifri, toestj otbrositj skobki..
@@ -89,16 +88,16 @@ public class DelfiTestThirdArticle {
 
         LOGGER.info("Time to wait for title on the article page");//Po4emu imenno v etix dvux mestax mi zapuskajem wait?
         // i po4emu spustja 3 poziciji mi zdem article page title, a ne srazu?
-        wait.until(ExpectedConditions.visibilityOfElementLocated(ARTICLE_PAGE_TITLE));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(COMMENTS_PAGE_TITLE));
 
         LOGGER.info("To get title on the comments page");
-        String commentsPageTitle = driver.findElement(COMMENTS_PAGE_TITLE).getText();
+        String commentsPageTitle = driver.findElement(COMMENTS_PAGE_TITLE).getText().trim();
 
         LOGGER.info("Getting comments count on the comments page"); // Objazateljno text perevesti v cifri, toestj otbrositj skobki..
         int commentsPageComments = Integer.parseInt(driver.findElement(COMMENTS_PAGE_COMMENTS).getText().substring(1,driver.findElement(COMMENTS_PAGE_COMMENTS).getText().length() -1));
 
         LOGGER.info("Checking title and comments count");
-        Assertions.assertTrue(homePageTitle.startsWith(commentsPageTitle), "Wrong Title");
+        Assertions.assertEquals(homePageTitle,commentsPageTitle,"FCKYOU");
         Assertions.assertEquals(homePageComments,commentsPageComments,"Wrong comments count");
 
     }
