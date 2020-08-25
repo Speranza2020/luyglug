@@ -97,7 +97,7 @@ public class DelfiTestThirdArticle {
         int commentsPageComments = Integer.parseInt(driver.findElement(COMMENTS_PAGE_COMMENTS).getText().substring(1,driver.findElement(COMMENTS_PAGE_COMMENTS).getText().length() -1));
 
         LOGGER.info("Checking title and comments count");
-        Assertions.assertEquals(homePageTitle,commentsPageTitle,"FCKYOU");
+        Assertions.assertEquals(homePageTitle,commentsPageTitle,"Wrong Title");
         Assertions.assertEquals(homePageComments,commentsPageComments,"Wrong comments count");
 
     }
