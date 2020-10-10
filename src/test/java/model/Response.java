@@ -8,6 +8,7 @@ import java.util.List;
 public class Response {
     private Coord coord;
 
+
     @JsonProperty("weather")
     private List<Weather> weathers;
     private String base;

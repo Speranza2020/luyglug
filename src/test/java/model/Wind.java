@@ -2,6 +2,7 @@ package model;
 
 public class Wind {
 
+
     private Double speed;
     private int deg;
 

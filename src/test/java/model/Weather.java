@@ -8,6 +8,7 @@ public class Weather {
 
     public int getId() {
         return id;
+
     }
 
     public void setId(int id) {

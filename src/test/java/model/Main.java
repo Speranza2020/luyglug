@@ -8,6 +8,7 @@ public class Main {
     private Double temp_max;
 
     public Double getTemp() {
+
         return temp;
     }
 

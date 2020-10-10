@@ -10,6 +10,7 @@ public class Clouds {
 
     public void setAll(int all) {
 
+
         this.all = all;
     }
 }

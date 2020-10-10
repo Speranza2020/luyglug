@@ -11,6 +11,7 @@ public class Sys {
 
     public int getType() {
         return type;
+
     }
 
     public void setType(int type) {

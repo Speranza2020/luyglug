@@ -22,6 +22,7 @@ public class WeatherRequester {
         // responseToParse - в строку переделываем
 
 
+
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readValue(responseToParse,Response.class);
     }
