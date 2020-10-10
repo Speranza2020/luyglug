@@ -20,5 +20,6 @@ public class Wind {
 
     public void setDeg(int deg) {
         this.deg = deg;
+
     }
 }

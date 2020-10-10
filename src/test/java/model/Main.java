@@ -10,6 +10,7 @@ public class Main {
     public Double getTemp() {
 
         return temp;
+
     }
 
     public void setTemp(Double temp) {

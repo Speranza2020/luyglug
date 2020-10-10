@@ -9,6 +9,7 @@ import model.Response;
 import org.junit.jupiter.api.Assertions;
 import requester.WeatherRequester;
 
+
 public class WeatherStepDefs {
     private String city;
     private String county;

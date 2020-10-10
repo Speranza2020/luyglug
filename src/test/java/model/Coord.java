@@ -10,6 +10,7 @@ public class Coord {
 
     public void setLon(Double lon) {
         this.lon = lon;
+
     }
 
     public Double getLat() {
